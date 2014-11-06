@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap     
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+<sqlMap>
+	<typeAlias alias="User" type="e.g.model.User"/>
+	<!-- 查询所有用户 -->
+	<select id="selectAllUser" resultClass="User">
+		select object_id,type_id,object_name,lo,df from t_data_object
+	</select>
+	
+	<!-- 查询指定ID 
+	<select id="selectUserById" parameterClass="String" resultClass="User">
+		select * from users
+		where userId=#userId#
+	</select>
+	-->
+	
+	<!-- 模糊查询
+	<select id="selectUserByName" parameterClass="String" resultClass="User">
+		select * from users
+		where userName like '%$a$%'
+	</select>
+	 -->
+	
+	<!-- 插入数据
+	<insert id="insert" parameterClass="User">
+		insert into users(userId,userName,password,email,phone)
+		values(#userId#,#userName#,#password#,#email#,#phone#)
+	</insert>
+	 -->
+	
+	<!--  
+	<insert id="insertBySequence" parameterClass="User">
+		<selectKey resultClass="int" keyProperty="userId">
+			select nextval('userSeq')
+		</selectKey>
+		insert into users(userId,userName,password,email,phone)
+		values(#userId#,#userName#,#password#,#email#,#phone#)
+	</insert>
+	-->
+	
+	<!-- 删除数据
+	<delete id="delete" parameterClass="String">
+		delete from users
+		where userId=#userId#
+	</delete>
+	 -->
+	
+	<!-- 修改数据
+	<update id="update" parameterClass="User">
+		update users
+		set userName=#userName#,
+			password=#password#,
+			email=#email#,
+			phone=#phone#
+		where userId=#userId#
+	</update>
+	 -->
+</sqlMap>
